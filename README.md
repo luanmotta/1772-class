@@ -6,6 +6,8 @@ An online class to teach students the basics of programming
 - Baixar sublimetext
 - npm install -g nodemon
 - npm install -g ngrok
+- nodemon server.js
+- ngrok http 6127
 
 ## Exercicios
 - Media
