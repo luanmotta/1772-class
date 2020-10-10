@@ -13,6 +13,8 @@ const idade = ano - nascimento
 const nomeCompleto = nome + ' ' + sobrenome
 
 const resposta = {
+  nome,
+  sobrenome,
   nomeCompleto,
   idade
 }

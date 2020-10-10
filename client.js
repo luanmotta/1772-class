@@ -25,6 +25,7 @@ Frase: Oi, eu sou Luan Motta, tenho 23 anos, e sou Escritor(a) Tagarela Que esqu
 */
 
 const https = require('https')
+const whoAreYou = require('./whoAreYou')
 const urls = ['https://eecc3e35f9f3.ngrok.io']
 var responses = [];
 var completed_requests = 0;
@@ -46,10 +47,15 @@ for (i in urls) {
   })
 }
 
+const mountPhrase = (obj) => {
+  return `Oi, eu sou ${obj.nomeCompleto}, tenho ${obj.idade} anos, e sou ${whoAreYou(obj.dia, obj.mes, obj.ano)}.`
+}
+
 const mountObjects = () => {
-  for (let i = 0; i < responses.length; i++) {
-    console.log(responses[i])
-  }
+  responses.forEach(obj => {
+    obj.frase = mountPhrase(obj)
+  })
+  console.log(responses)
 }
 
 const renderPage = () => {
