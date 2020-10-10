@@ -37,7 +37,7 @@ for (i in urls) {
     })
 
     res.on('end', function(){
-      responses.push(data)
+      responses.push(JSON.parse(data))
       if (completed_requests++ === urls.length - 1) {
         // All downloads are completed
         mountObjects()
