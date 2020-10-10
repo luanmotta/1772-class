@@ -1,5 +1,5 @@
 /*
-{
+Request object = {
   Nome: String,
   Sobrenome: String,
   NomeCompleto: String,
@@ -7,25 +7,51 @@
   Dia: Number,
   Mês: Number,
   Ano: Number,
-  Frase: String
 }
 
-Oi, eu sou Mikael, tenho X anos, e sou Apresentador(a) Crente Que tá sempre com fome.
+Object to Mount = {
+  Nome: String,
+  Sobrenome: String,
+  NomeCompleto: String,
+  Idade: Number,
+  Dia: Number,
+  Mês: Number,
+  Ano: Number,
+  Frase: String,
+}
+
+Frase: Oi, eu sou Luan Motta, tenho 23 anos, e sou Escritor(a) Tagarela Que esquece das reuniões.
 
 */
 
-var https = require('https')
-var urls = ["https://16b69ce1b783.ngrok.io"]
+const https = require('https')
+const urls = ['https://eecc3e35f9f3.ngrok.io']
 var responses = [];
 var completed_requests = 0;
 
 for (i in urls) {
-    https.get(urls[i], function(res) {
-        responses.push(res);
-        completed_requests++;
-        if (completed_requests == urls.length) {
-            // All download done, process responses array
-            console.log(responses);
-        }
-    });
+  https.get(urls[i], (res) => {
+    let data = ''
+    res.on('data', chunk => {
+      data += chunk
+    })
+
+    res.on('end', function(){
+      responses.push(data)
+      if (completed_requests++ === urls.length - 1) {
+        // All downloads are completed
+        mountObjects()
+      }
+    })
+  })
+}
+
+const mountObjects = () => {
+  for (let i = 0; i < responses.length; i++) {
+    console.log(responses[i])
+  }
+}
+
+const renderPage = () => {
+
 }
