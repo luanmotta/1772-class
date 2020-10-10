@@ -1,20 +1,27 @@
 const http = require('http')
-
 const SERVER_PORT = 6127
+
+function calculaIdade(birthday) {
+  var ageDifMs = Date.now() - birthday.getTime()
+  var ageDate = new Date(ageDifMs)
+  return Math.abs(ageDate.getUTCFullYear() - 1970)
+}
 
 const nome = 'luan'
 const sobrenome = 'motta'
-
-const ano = 2020
-const nascimento = 1997
-
-const idade = ano - nascimento
+const dataDeNascimento = new Date(1997, 6, 3) // ano, mes, dia
 
 const nomeCompleto = nome + ' ' + sobrenome
 
 const resposta = {
+  nome,
+  sobrenome,
   nomeCompleto,
-  idade
+  dataDeNascimento,
+  dia: dataDeNascimento.getDay() - 1,
+  mes: dataDeNascimento.getMonth(),
+  ano: dataDeNascimento.getFullYear(),
+  idade: calculaIdade(dataDeNascimento)
 }
 
 http.createServer((req, res) => {

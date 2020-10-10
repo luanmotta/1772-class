@@ -7,6 +7,11 @@ An online class to teach students the basics of programming
 - npm install -g nodemon
 - npm install -g ngrok
 
+## Exercicios
+- Media
+- Porcentagem
+- If (qual é maior numero entre A e B)
+
 ## Dinamica
 1 - Construir servidor (Codeshare)
 2 - Testar usando browser
