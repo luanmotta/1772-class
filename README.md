@@ -7,7 +7,7 @@ An online class to teach students the basics of programming
 - npm install -g nodemon
 - npm install -g ngrok
 - nodemon server.js
-- ngrok http 6127
+- ngrok http 6127 OU ./node_modules/ngrok/bin/ngrok http 6127
 
 ## Exercicios
 - Media

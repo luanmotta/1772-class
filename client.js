@@ -65,7 +65,11 @@ const doRequests = () => {
       })
       res.on('end', () => {
         if (!data.includes('not found')) {
-          responses.push(JSON.parse(data))
+          try {
+            responses.push(JSON.parse(data))
+          } catch (e) {
+            //
+          }
         }
         if (completed_requests++ === urlsFiltered.length - 1) {
           // All downloads are completed
