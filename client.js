@@ -26,6 +26,7 @@ Frase: Oi, eu sou Luan Motta, tenho 23 anos, e sou Escritor(a) Tagarela Que esqu
 
 const http = require('http')
 const https = require('https')
+const { createReadStream } = require('fs')
 const whoAreYou = require('./whoAreYou')
 const regexUrl = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
 const SERVER_PORT = 8080
@@ -88,7 +89,15 @@ const mountObjects = () => {
 
 const renderPage = () => {
   http.createServer((req, res) => {
-    res.write(frontend(responses))
-    res.end()
+    const reqFile = req.url.substring(1, req.url.length)
+    if (reqFile === '') {
+      res.write(frontend(responses))
+      res.end()
+    } else {
+      let readerStream
+      readerStream = createReadStream(`./frontend/${reqFile}`)
+      readerStream.pipe(res)
+      res.end()
+    }
   }).listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}`))
 }
