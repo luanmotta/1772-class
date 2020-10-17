@@ -1,8 +1,6 @@
 
 
 module.exports = (dadosTeste) => {
-	dadosTeste = [ dadosTeste[0], dadosTeste[0], dadosTeste[0], dadosTeste[0], dadosTeste[0], dadosTeste[0] ]
-
 	let cor = ['dadosPreto', 'dadosVermelho', 'dadosAzul', 'dadosVerde'];
 
 	let html = "<tr>";
