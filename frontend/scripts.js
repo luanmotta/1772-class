@@ -1,12 +1,14 @@
 
 
 module.exports = (dadosTeste) => {
+	dadosTeste = [ dadosTeste[0], dadosTeste[0], dadosTeste[0], dadosTeste[0], dadosTeste[0], dadosTeste[0] ]
+
 	let cor = ['dadosPreto', 'dadosVermelho', 'dadosAzul', 'dadosVerde'];
 
 	let html = "<tr>";
 	let contador = 1;
 
-	dadosTeste.forEach((index, dado) => {
+	dadosTeste.forEach((dado, index) => {
 		html +=
 			"<td id='dados' class='" + cor[ Math.floor( Math.random() * 4 ) ] + "'>" +
 				"<p><span>Nome:</span> " + dado['nome'] + "</p>" +
