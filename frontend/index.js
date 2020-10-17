@@ -26,10 +26,14 @@ module.exports = (array) => {
 }
 
 #fundo {
-	display: inline-block;
-	height: 80%;
+	display: flex;
+	height: auto;
 	width: 100%;
-	position: relative;
+	padding-top: 10rem;
+	padding-bottom: 20rem;
+	background: url('https://userscontent2.emaze.com/images/6629c62b-5495-4685-aa66-3a39ca195b16/Slide2_Pic1_637300900505398980.png');
+	background-repeat:no-repeat;
+	background-size:100vw 100%;
 }
 
 #marginTopFundo {
@@ -55,12 +59,6 @@ module.exports = (array) => {
 
 #lousa {
 	z-index: -1;
-}
-
-#tabelaAnotacoes {
-	position: absolute;
-	top: 6%;
-	left: 0%;
 }
 
 #anotacoes {
@@ -110,9 +108,6 @@ span {
 		<body>
 			<div id="marginTopFundo"></div>
 			<div id="fundo">
-
-				<img id="lousa" class="todoTamanho" src="https://userscontent2.emaze.com/images/6629c62b-5495-4685-aa66-3a39ca195b16/Slide2_Pic1_637300900505398980.png">
-
 				<table id="tabelaAnotacoes">
 					<thead class="todaLargura">
 						<tr class="todaLargura">
