@@ -29,6 +29,7 @@ const https = require('https')
 const whoAreYou = require('./whoAreYou')
 const regexUrl = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
 const SERVER_PORT = 8080
+const frontend = require('./frontend')
 
 var urls = []
 var urlsFiltered = []
@@ -87,7 +88,7 @@ const mountObjects = () => {
 
 const renderPage = () => {
   http.createServer((req, res) => {
-    res.write(JSON.stringify(responses))
+    res.write(frontend(responses))
     res.end()
   }).listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}`))
 }
